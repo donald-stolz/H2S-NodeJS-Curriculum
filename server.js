@@ -1,5 +1,5 @@
 const express = require("express");
-const Todo = require("./db/todo.model");
+const Todo = require("./todo.model");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -25,10 +25,9 @@ app.get("/todos", (req, res) => {
   Todo.find(function(err, todos) {
     if (err) {
       console.log(err);
+      res.status(400).send("Failed to fetch todos");
     } else {
-      console.log(todos);
-
-      res.json(todos);
+      res.status(200).json(todos);
     }
   });
 });
@@ -37,7 +36,7 @@ app.get("/todos", (req, res) => {
 app.get("/todos/:id", (req, res) => {
   let id = req.params.id;
   Todo.findById(id, function(err, todo) {
-    res.json(todo);
+    res.status(200).json(todo);
   });
 });
 
@@ -45,47 +44,51 @@ app.get("/todos/:id", (req, res) => {
 app.post("/todos", (req, res) => {
   Todo.create(req.body, function(err) {
     if (err) {
-      res.status(400).send("adding new todo failed");
+      res.status(400).send("Could not add new todo");
     }
   });
-  res.status(200).json({ todo: "todo added successfully" });
+  res.status(200).json({ todo: "Todo added" });
 });
 
 // Update todo by ID
 app.post("/todos/:id", (req, res) => {
   Todo.findById(req.params.id, function(err, todo) {
-    if (!todo) res.status(404).send("data is not found");
-    // Update for new model
-    else todo.description = req.body.description;
-    todo.title = req.body.title;
-    todo.completed = req.body.completed;
+    if (!todo) {
+      // If no todo found return error
+      res.status(404).send("Could not find todo");
+    } else {
+      // Update and save todo
+      let { description, title, completed } = req.body;
+      // Check to see if value exists, if it does replace the value
+      todo.description = description ? description : todo.description;
+      todo.title = title ? title : todo.title;
+      todo.completed = completed ? completed : todo.completed;
 
-    todo
-      .save()
-      .then(todo => {
-        res.json("Todo updated");
-      })
-      .catch(err => {
-        res.status(400).send("Update not possible");
-      });
+      todo
+        .save()
+        .then(todo => {
+          res.status(200).json("Todo updated");
+        })
+        .catch(err => {
+          res.status(400).send("Update not possible");
+        });
+    }
   });
 });
 
 // Remove todo by ID
 app.delete("/todos/:id", (req, res) => {
   const id = req.params.id;
-
-  // Remove by id
   Todo.deleteOne({ _id: id }, function(err) {
     if (err) {
       return res.status(404).send({
         success: "false",
-        message: "todo not found"
+        message: "Could not find todo"
       });
     }
     return res.status(200).send({
       success: "true",
-      message: "todo was removed"
+      message: "Removed todo"
     });
   });
 });
