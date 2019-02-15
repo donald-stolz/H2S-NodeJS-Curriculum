@@ -42,7 +42,11 @@ app.get("/todos/:id", (req, res) => {
 
 // Add new todo
 app.post("/todos", (req, res) => {
-  Todo.create(req.body, function(err) {
+  let todo = req.body;
+  if (typeof todo.completed !== "boolean") {
+    todo.completed = false;
+  }
+  Todo.create(todo, function(err) {
     if (err) {
       res.status(400).send("Could not add new todo");
     }
@@ -60,8 +64,8 @@ app.post("/todos/:id", (req, res) => {
       // Update and save todo
       let { description, title, completed } = req.body;
       // Check to see if value exists, if it does replace the value
-      todo.description = description ? description : todo.description;
       todo.title = title ? title : todo.title;
+      todo.description = description ? description : todo.description;
       todo.completed = completed ? completed : todo.completed;
 
       todo
