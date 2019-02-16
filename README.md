@@ -18,4 +18,7 @@ Here we expand our API to create new users. We add middleware and learn to us th
 
 ## ToDo List APi
 
-This is the final challenge. Students must create their own API for keeping track of ToDos
+This is the final challenge. Students must create their own API for keeping track of ToDos.
+
+- API 0 uses db.json to store data
+- API 1 connects to an instance of MongoDB
