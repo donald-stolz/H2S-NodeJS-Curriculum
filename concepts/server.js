@@ -6,7 +6,6 @@ const app = express();
 
 // Add bodyparsing middleware
 app.use(bodyParser.json());
-app.unsubscribe(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   console.log("Hello world!");

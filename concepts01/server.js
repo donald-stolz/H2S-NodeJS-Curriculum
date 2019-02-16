@@ -7,12 +7,14 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello world");
 });
 
+// Get all users
 app.get("/users", (req, res) => {
   res.status(200).send(db);
 });
 
+// Get user by ID
 app.get("/users/:id", (req, res) => {
-  let { id } = req.params;
+  const { id } = req.params;
 
   const user = db.find(item => item.id == id);
   if (user) {
