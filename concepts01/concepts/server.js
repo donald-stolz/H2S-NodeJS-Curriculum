@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./db.json");
+const db = require("./db.js");
 const app = express();
 
 app.get("/", (req, res) => {
@@ -12,7 +12,7 @@ app.get("/users", (req, res) => {
 });
 
 app.get("/users/:id", (req, res) => {
-  let { id } = req.params;
+  const { id } = req.params;
 
   const user = db.find(item => item.id == id);
   if (user) {
