@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("./db.json");
-const bodyParser = require("body-parser");
 const fs = require("fs");
+const bodyParser = require("body-parser");
 const app = express();
 
 // Add bodyparsing middleware
@@ -25,7 +25,7 @@ app.get("/users/:id", (req, res) => {
   if (user) {
     res.status(200).send(user);
   } else {
-    res.status(404).send("Could not find user");
+    res.status(400).send("Could not find user");
   }
 });
 
