@@ -25,7 +25,7 @@ app.get("/users/:id", (req, res) => {
   if (user) {
     res.status(200).send(user);
   } else {
-    res.status(400).send("Could not find user");
+    res.status(404).send("Could not find user");
   }
 });
 
@@ -33,7 +33,7 @@ app.get("/users/:id", (req, res) => {
 app.post("/users", (req, res) => {
   const { name } = req.body;
   if (!name) {
-    res.status(404).send("Could not add user");
+    res.status(400).send("Could not add user");
   }
   let user = {};
   user.name = name;
