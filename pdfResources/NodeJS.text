@@ -44,15 +44,11 @@
 By now you may have heard the terms front-end and backend development. Front-end development refers to code written on the clients devices, and focuses mainly UI/UX development. So what is Backend Development? Backend development is a mix of servers, databases, and API’s that power your app.\\
 What is a server? A server is a computer/device/program that is dedicated to managing network resources. Most any computer is capable of serving as a network server. A server serves information to our client. The information we need is stored in our database. How do we communicate with the server in order to get the proper information? We communicate with our application server through an Application Programming Interface, or an API. An API is a set of functions and procedures, it receives requests and returns responses.\\
 
-
-TODO: check & update resources
-
 Learn more about the internet, servers, and APIs:
 \begin{itemize}\itemsep1pt
-\item \href{https://www.youtube.com/watch?v=s7wmiS2mSXY}{What is an API?}
-\item \href{https://www.youtube.com/watch?v=Dxcc6ycZ73M&list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7}{How does the internet work?}
+\item \href{https://www.youtube.com/watch?v=ZhEf7e4kopM&list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7&index=2{How the internet works}
 \item \href{https://www.youtube.com/watch?v=TQQA8RpKxqg}{What is a Computer Server?}
-\item \href{https://www.youtube.com/watch?v=AEaKrq3SpW8}{The internet: Crash Course}
+\item \href{https://www.youtube.com/watch?v=s7wmiS2mSXY}{What is an API?}
 \end{itemize}
 
 
@@ -63,7 +59,7 @@ Learn more about the internet, servers, and APIs:
 %******************************************************************************%
 \chapter{Goals}
 
-    By completing these exercises you will learn about how servers and APIs work. You will learn about writing backend services with JavaScript.
+    By completing these exercises you will learn about creating servers and APIs work. You will learn about writing backend services with JavaScript.
 
 
 %******************************************************************************%
@@ -95,22 +91,12 @@ Learn more about the internet, servers, and APIs:
 	Our directory should now consist of the `package.json` file and our `node_modules` folder. We will also add a `.gitignore` file. Inside this file simply write `node_modules` and git will now know to ignore our node_modules directory.
 
 	Now to actually build our server! Create a file called `server.js`. Inside this file write the following code:
-TODO: Create code snippet or add picture
-	`
-		const express = require("express")
 
-		const app = express();
-
-		app.get('/', (req, res) => {
-			console.log("Hello world!");
-			res.status(200).send("Hello world");
-		});
-
-		const PORT = 3000;
-		app.listen(PORT, () => {
-			console.log(`Server running at http://localhost:${PORT}`);
-		});
-	`
+	\begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=10cm]{WEB/NodeHelloWorld.png}
+        \end{center}
+    \end{figure}
 
 	Let's setup our start script. Open up `package.json` and under the scripts object replace `test` with `start` and then replace the script's value with the command `node server.js`
 
