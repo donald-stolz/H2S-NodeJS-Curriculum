@@ -95,50 +95,50 @@ apply your new knowledge towards creating your own API for tracking Todos.
 	
 	Now to actually build our server! Create a file called \texttt{server.js}. Inside this file write the following code:
 	
-	\begin{42jscode}
-	// Server.js
-	const express = require("express")
+\begin{42jscode}
+// Server.js
+const express = require("express")
 
-	const app = express();
+const app = express();
 
-	app.get('/', (req, res) => {
-		console.log("Hello world!");
-		res.status(200).send("Hello world");
-	});
+app.get('/', (req, res) => {
+    console.log("Hello world!");
+    res.status(200).send("Hello world");
+});
 
-	const PORT = 3000;
-	app.listen(PORT, () => {
-		console.log(`Server running at http://localhost:${PORT}`);
-	});
-	$
-	\end{42jscode}
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
+$
+\end{42jscode}
 
-	Let's setup our start script. Open up \texttt{package.json} and under the scripts object replace \texttt{"test"} with \texttt{"start"} and then replace the script's value with the command \texttt{"node server.js"}. Your package.json should look like this: 
-	\begin{42jscode}
-	{
-		"name": "test",
-		"version": "1.0.0",
-		"description": "",
-		"main": "index.js",
-		"scripts": {
-			"start": "node server.js"
-		},
-		"author": "",
-		"license": "ISC",
-		"dependencies": {
-			"express": "^4.16.4"
-		}
-	}
-	\end{42jscode}
+\info {
+    Check out \href{https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/}
+    {this link} for more information on npm.
+}
 
+\newpage
+	Let's setup our start script. Open up \texttt{package.json} and under the scripts object replace \texttt{"test"} with \texttt{"start"} and then replace the script's value with the command \texttt{"node server.js"}. Your package.json should look like this:
+
+\begin{42jscode}
+{
+    "name": "basics",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Don Stolz",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.4"
+    }
+}
+\end{42jscode}
 
 	Finally our server is ready to run. From the root of your \texttt{Basics} project run \texttt{npm run start} and head to \href{http://localhost:3000/}{http://localhost:3000/} to check out your server.
-
-
-	\info {
-		Check out \href{https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/}
-        {this link} for more information on npm.
-	}
 
     \hint {
         Use "control + c" to quit your server.
@@ -156,59 +156,55 @@ apply your new knowledge towards creating your own API for tracking Todos.
 %******************************************************************************%
 \chapter{Exercise \exercicenumber: Setting up additional endpoints}
 
-Now that we have our basic server setup we can start adding more endpoints to 
-expand our functionalty. What is an endpoint? An endpoint is a URL pattern used 
-to communicate with an API. Endpoints can also be differntiated by their HTTP 
-methods. An HTTP method allows us to indicate the type of action we are trying 
-to preform. Our current server consists of a single `GET` endpoint.
+    Now that we have our basic server setup we can start adding more endpoints to expand our functionalty. What is an endpoint? An endpoint is a URL pattern used to communicate with an API. Endpoints can also be differntiated by their HTTP methods. An HTTP method allows us to indicate the type of action we are trying to preform. Our current server consists of a single `GET` endpoint.
 
 \info {
 		Check out \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods}{MDN}
 		for more information on the different types of HTTP methods.
 	}
 
-Let's first add a database so that we have some information for our new endpoints to access. Create a file called \texttt{"db.json"} in this file create a simple array of user objects with the fields \texttt{"name"} and \texttt{"id"}. It should look something like this.
-	\begin{42jscode}
-	[
-		{
-			"name": "Don",
-			"id": 0
-		},
-		{
-			"name": "Dan",
-			"id": 1
-		}
-	]
-	\end{42jscode}
+    Let's first add a database so that we have some information for our new endpoints to access. Create a file called \texttt{"db.json"} in this file create a simple array of user objects with the fields \texttt{"name"} and \texttt{"id"}. It should look something like this.
+\begin{42jscode}
+[
+    {
+        "name": "Don",
+        "id": 0
+    },
+    {
+        "name": "Dan",
+        "id": 1
+    }
+]
+\end{42jscode}
 
-Now we can access our database by importing it the same way we imported the express library. Simply add \texttt{const db = require("./db.json");} to the top of our \texttt{server.js} file.
+    Now we can access our database by importing it the same way we imported the express library. Simply add \texttt{const db = require("./db.json");} to the top of our \texttt{server.js} file.
 
-Setup a new `GET` endpoint called \texttt{"/users"}. It will be setup simarly to our `Hello World!` example, except it will return our database:
-	\begin{42jscode}
-	// Get all users
-	app.get("/users", (req, res) => {
-		res.status(200).send(db);
-	});
-	\end{42jscode}
+    Setup a new `GET` endpoint called \texttt{"/users"}. It will be setup simarly to our `Hello World!` example, except it will return our database:
+\begin{42jscode}
+// Get all users
+app.get("/users", (req, res) => {
+    res.status(200).send(db);
+});
+\end{42jscode}
 
-Notice that along with the response we send back we also set the status code to 200. Status code 200 indicates that the request has succeeded. Check out the different status code values \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}{here} 
+    Notice that along with the response we send back we also set the status code to 200. Status code 200 indicates that the request has succeeded. Check out the different status code values \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}{here} 
 
-Next, we will setup a route to retrieve an individual user from our database. Setup another `GET` endpoint and call it \texttt{"/users/:id"}. Using \texttt{":id"} will allow us to retrieve \texttt{"id"} as a variable from the request parameters. Follow the snippet below:
-	\begin{42jscode}
-	// Get user by ID
-	app.get("/users/:id", (req, res) => {
-		const { id } = req.params;
+    Next, we will setup a route to retrieve an individual user from our database. Setup another `GET` endpoint and call it \texttt{"/users/:id"}. Using \texttt{":id"} will allow us to retrieve \texttt{"id"} as a variable from the request parameters. Follow the snippet below:
+\begin{42jscode}
+// Get user by ID
+app.get("/users/:id", (req, res) => {
+    const { id } = req.params;
 
-		const user = db.find(item => item.id == id);
-		if (user) {
-			res.status(200).send(user);
-		} else {
-			res.status(404).send("Could not find user");
-		}
-	});
-	\end{42jscode}
+    const user = db.find(item => item.id == id);
+    if (user) {
+        res.status(200).send(user);
+    } else {
+        res.status(404).send("Could not find user");
+    }
+});
+\end{42jscode}
 
-Notice the new status code 404. This indicates an error, specifically that the server could not find the requested resources. Try testing your endpoints by going to \href{http://localhost:3000/users}{http://localhost:3000/users} and \href{http://localhost:3000/users/0}{http://localhost:3000/users/0}
+    Notice the new status code 404. This indicates an error, specifically that the server could not find the requested resources. Try testing your endpoints by going to \href{http://localhost:3000/users}{http://localhost:3000/users} and \href{http://localhost:3000/users/0}{http://localhost:3000/users/0}
 
 \newpage
 % Don't forget this line in order to increment the exercise counter
@@ -221,44 +217,43 @@ Notice the new status code 404. This indicates an error, specifically that the s
 %******************************************************************************%
 \chapter{Exercise \exercicenumber: Setting up POST endpoints}
 
-We can fetch our entire db and individual users, now we will learn how to set up a `POST` endpoint so we can add new users to our database. In order to do this we will be adding a few additonal libraries. First run \texttt{npm install --save body-parser}. Then add the body-parser middleware to our express app. We will also be adding the \texttt{"fs"} library to access the file system, this library comes with Node. The top of your \texttt{server.js} file should look like this:
+    We can fetch our entire db and individual users, now we will learn how to set up a `POST` endpoint so we can add new users to our database. In order to do this we will be adding a few additonal libraries. First run \texttt{npm install --save body-parser}. Then add the body-parser middleware to our express app. We will also be adding the \texttt{"fs"} library to access the file system, this library comes with Node. The top of your \texttt{server.js} file should look like this:
 
-	\begin{42jscode}
-		// Server.js
-		const express = require("express");
-		const db = require("./db.json");
-		const fs = require("fs");
-		const bodyParser = require("body-parser");
-		const app = express();
+\begin{42jscode}
+    // Server.js
+    const express = require("express");
+    const db = require("./db.json");
+    const fs = require("fs");
+    const bodyParser = require("body-parser");
+    const app = express();
 
-		// Add bodyparsing middleware to app
-		app.use(bodyParser.json());
-	\end{42jscode}
-TODO:
-
-Set up a new `POST` endpoint called \texttt{"/users"}, this will be exactly the same as our `GET` route except we will use \texttt{app.get('/users')}. In this route we will also be pulling the \texttt{"name"} variable out of \texttt{"req.body"}, this is what we setup the \texttt{"body-parser"} middleware for. We will check that name exists, if it doesn't we will return a \texttt{400} status. Next we will setup the new user object and assign it's \texttt{name} and \texttt{id} values. Once we have the object setup, we can push it to the database. However, simply push the new value to the database will not update the file itself. We will have to first convert our JSON array into a string, then use the \texttt{fs} module to write the stringified database to our JSON file. Follow this example:
-	\begin{42jscode}
-		// Create new user
-		app.post("/users", (req, res) => {
-			const { name } = req.body;
-			if (!name) {
-				res.status(400).send("Could not add user");
-			}
-			let user = {};
-			user.name = name;
-			user.id = db.length;
-			db.push(user);
-			// Convert DB to JSON string
-			data = JSON.stringify(db);
-			// Write string to file
-			fs.writeFile("./db.json", data, "utf8", err => {
-				if (err) {
-				res.status(404).send(`Failed to add ${user.name} to db`);
-				}
-				res.status(200).send(`Added ${user.name} to db`);
-			});
-		});
-	\end{42jscode}
+    // Add bodyparsing middleware to app
+    app.use(bodyParser.json());
+\end{42jscode}
+\newpage
+    Set up a new `POST` endpoint called \texttt{"/users"}, this will be exactly the same as our `GET` route except we will use \texttt{app.get('/users')}. In this route we will also be pulling the \texttt{"name"} variable out of \texttt{"req.body"}, this is what we setup the \texttt{"body-parser"} middleware for. We will check that name exists, if it doesn't we will return a \texttt{400} status. Next we will setup the new user object and assign it's \texttt{name} and \texttt{id} values. Once we have the object setup, we can push it to the database. However, simply push the new value to the database will not update the file itself. We will have to first convert our JSON array into a string, then use the \texttt{fs} module to write the stringified database to our JSON file. Follow this example:
+\begin{42jscode}
+    // Create new user
+    app.post("/users", (req, res) => {
+        const { name } = req.body;
+        if (!name) {
+            res.status(400).send("Could not add user");
+        }
+        let user = {};
+        user.name = name;
+        user.id = db.length;
+        db.push(user);
+        // Convert DB to JSON string
+        data = JSON.stringify(db);
+        // Write string to file
+        fs.writeFile("./db.json", data, "utf8", err => {
+            if (err) {
+            res.status(404).send(`Failed to add ${user.name} to db`);
+            }
+            res.status(200).send(`Added ${user.name} to db`);
+        });
+    });
+\end{42jscode}
 
 
 
@@ -274,12 +269,9 @@ Set up a new `POST` endpoint called \texttt{"/users"}, this will be exactly the 
 %******************************************************************************%
 \chapter{Exercise \exercicenumber: Testing with Postman}
 
-So we've setup a `POST` route, but how do we send data with our request? We will be using a tool called Postman to test our routes. Head to the Application directory and open Postman
-\hint {
-		You can also just use `command + space` and search Postman.
-	}
+    So we've setup a `POST` route, but how do we send data with our request? We will be using a tool called Postman to test our routes. Head to the Application directory and open Postman, or use  `command + space` and search Postman.
 
-Feel free to login with google or head straight to the app. Once you are inside you can quickly test our `GET` requests by add \texttt{localhost:3000} as the `request URL` like so:
+    Feel free to login with google or head straight to the app. Once you are inside you can quickly test our `GET` requests by add \texttt{localhost:3000} as the `request URL` like so:
 
     \begin{figure}[H]
         \begin{center}
@@ -308,7 +300,7 @@ The final tool you will want to add to your project before starting the Mandator
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-	"start-watch": "nodemon server.js"
+    "start-watch": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -367,7 +359,7 @@ TODO: Update all routes
 %******************************************************************************%
 \chapter{Bonus part}
 
-Add Authentication lol
+Connect your API to a website or app.
 
 %******************************************************************************%
 %                                                                              %
@@ -376,7 +368,7 @@ Add Authentication lol
 %******************************************************************************%
 \chapter{Turn-in and peer-evaluation}
 
-    Always be ready to explain your code. Also be prepared to demonstarte your routes in Postman.
+Always be ready to explain your code. Also be prepared to demonstrate your routes in Postman.
 
 %******************************************************************************%
 \end{document}
