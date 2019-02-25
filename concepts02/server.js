@@ -4,7 +4,7 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const app = express();
 
-// Add bodyparsing middleware
+// Add bodyparsing middleware to app
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -39,8 +39,9 @@ app.post("/users", (req, res) => {
   user.name = name;
   user.id = db.length;
   db.push(user);
-  // Convert DB to JSON string & write to file
+  // Convert DB to JSON string
   data = JSON.stringify(db);
+  // Write string to file
   fs.writeFile("./db.json", data, "utf8", err => {
     if (err) {
       res.status(404).send(`Failed to add ${user.name} to db`);
