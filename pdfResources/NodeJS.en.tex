@@ -85,9 +85,7 @@ apply your new knowledge towards creating your own API for tracking Todos.
 %******************************************************************************%
 \chapter{Exercise \exercicenumber: Hello World!}
 
-    It’s time setup our first Node.js project. What is Node.js? Node.js is a 
-JavaScript runtime. Basically Node allows us to run JavaScript outside of the 
-web browser.
+    It’s time setup our first Node.js project. What is Node.js? Node.js is a JavaScript runtime. Basically Node allows us to run JavaScript outside of a web browser.
 
 	Let's start by creating a new directory called \texttt{Basics} from the Terminal. Now \texttt{cd} into our new directory and run \texttt{npm init}. Go ahead and just press enter through all the prompts, they're not important for our project.
 
@@ -115,7 +113,7 @@ web browser.
 	$
 	\end{42jscode}
 
-	Let's setup our start script. Open up \texttt{package.json} and under the scripts object replace "test" with "start" and then replace the script's value with the command "node server.js". Your package.json should look like this: 
+	Let's setup our start script. Open up \texttt{package.json} and under the scripts object replace \texttt{"test"} with \texttt{"start"} and then replace the script's value with the command \texttt{"node server.js"}. Your package.json should look like this: 
 	\begin{42jscode}
 	{
 		"name": "test",
@@ -169,7 +167,7 @@ to preform. Our current server consists of a single `GET` endpoint.
 		for more information on the different types of HTTP methods.
 	}
 
-Let's first add a database so that we have some information for our new endpoints to access. Create a file called `db.json` in this file create a simple array of user objects with the fields `name` and `id`. It should look something like this.
+Let's first add a database so that we have some information for our new endpoints to access. Create a file called \texttt{"db.json"} in this file create a simple array of user objects with the fields \texttt{"name"} and \texttt{"id"}. It should look something like this.
 	\begin{42jscode}
 	[
 		{
@@ -189,24 +187,24 @@ Setup a new `GET` endpoint called \texttt{"/users"}. It will be setup simarly to
 	\begin{42jscode}
 	// Get all users
 	app.get("/users", (req, res) => {
-	res.status(200).send(db);
+		res.status(200).send(db);
 	});
 	\end{42jscode}
 
 Notice that along with the response we send back we also set the status code to 200. Status code 200 indicates that the request has succeeded. Check out the different status code values \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}{here} 
 
-Next, we will setup a route to retrieve an individual user from our database. Setup another `GET` endpoint and call it \texttt{"/users/:id"}. Using \texttt{":id"} will allow us to retrieve `id` as a variable from the request parameters. Follow the snippet below:
+Next, we will setup a route to retrieve an individual user from our database. Setup another `GET` endpoint and call it \texttt{"/users/:id"}. Using \texttt{":id"} will allow us to retrieve \texttt{"id"} as a variable from the request parameters. Follow the snippet below:
 	\begin{42jscode}
 	// Get user by ID
 	app.get("/users/:id", (req, res) => {
-	const { id } = req.params;
+		const { id } = req.params;
 
-	const user = db.find(item => item.id == id);
-	if (user) {
-		res.status(200).send(user);
-	} else {
-		res.status(404).send("Could not find user");
-	}
+		const user = db.find(item => item.id == id);
+		if (user) {
+			res.status(200).send(user);
+		} else {
+			res.status(404).send("Could not find user");
+		}
 	});
 	\end{42jscode}
 
@@ -223,7 +221,7 @@ Notice the new status code 404. This indicates an error, specifically that the s
 %******************************************************************************%
 \chapter{Exercise \exercicenumber: Setting up POST endpoints}
 
-We can fetch our entire db and individual users, now we will learn how to set up a `POST` endpoint so we can add new users to our database. In order to do this we will be adding a few additonal libraries. First run `npm install --save body-parser`. Then add the body-parser middleware to our express app. We will also be adding the `fs` library to access the file system, this library comes with Node. The top of your \texttt{server.js} file should look like this:
+We can fetch our entire db and individual users, now we will learn how to set up a `POST` endpoint so we can add new users to our database. In order to do this we will be adding a few additonal libraries. First run \texttt{npm install --save body-parser}. Then add the body-parser middleware to our express app. We will also be adding the \texttt{"fs"} library to access the file system, this library comes with Node. The top of your \texttt{server.js} file should look like this:
 
 	\begin{42jscode}
 		// Server.js
@@ -236,9 +234,9 @@ We can fetch our entire db and individual users, now we will learn how to set up
 		// Add bodyparsing middleware to app
 		app.use(bodyParser.json());
 	\end{42jscode}
+TODO:
 
-
-Set up a new `POST` endpoint called `/users`, this will be exactly the same as our `GET` route except we will use `app.get('/users')`. In this route we will also be pulling the `name` variable out of `req.body`, this is what we setup the `body-parser` middleware for. We will check that name exists, if it doesn't we will return a `400` status. Next we will setup the new user object and assign it's `name` and `id` values. Once we have the object setup, we can push it to the database. However, simply push the new value to the database will not update the file itself. We will have to first convert our JSON array into a string, then use the `fs` module to write the stringified database to our JSON file. Follow this example:
+Set up a new `POST` endpoint called \texttt{"/users"}, this will be exactly the same as our `GET` route except we will use \texttt{app.get('/users')}. In this route we will also be pulling the \texttt{"name"} variable out of \texttt{"req.body"}, this is what we setup the \texttt{"body-parser"} middleware for. We will check that name exists, if it doesn't we will return a \texttt{400} status. Next we will setup the new user object and assign it's \texttt{name} and \texttt{id} values. Once we have the object setup, we can push it to the database. However, simply push the new value to the database will not update the file itself. We will have to first convert our JSON array into a string, then use the \texttt{fs} module to write the stringified database to our JSON file. Follow this example:
 	\begin{42jscode}
 		// Create new user
 		app.post("/users", (req, res) => {
@@ -281,7 +279,7 @@ So we've setup a `POST` route, but how do we send data with our request? We will
 		You can also just use `command + space` and search Postman.
 	}
 
-Feel free to login with google or head straight to the app. Once you are inside you can quickly test our `GET` requests by add localhost:3000 as the `request URL` like so:
+Feel free to login with google or head straight to the app. Once you are inside you can quickly test our `GET` requests by add \texttt{localhost:3000} as the `request URL` like so:
 
     \begin{figure}[H]
         \begin{center}
@@ -289,7 +287,7 @@ Feel free to login with google or head straight to the app. Once you are inside 
         \end{center}
     \end{figure}
 
-Now that we know how to setup a `GET` request we can setup our `POST` request in a similar way. Here we will also want to add a body for sending the name of the user to add. We will head to the `body` tab and select raw as our format. Next we will also need to specify that our data is JSON content. Then we can add create a JSON object to add a new user. You should get a response that says `Added New User to db` with a status of 200.
+Now that we know how to setup a `GET` request we can setup our `POST` request in a similar way. Here we will also want to add a body for sending the name of the user to add. We will head to the \texttt{body} tab and select \texttt{raw} as our format. Next we will also need to specify that our data is \texttt{JSON content}. Then we can add create a JSON object to add a new user. You should get a response that says \texttt{"Added New User to db"} with a status of \texttt{200}.
 
     \begin{figure}[H]
         \begin{center}
@@ -301,7 +299,7 @@ Now that we know how to setup a `GET` request we can setup our `POST` request in
 		logging in with Google will allow you to save your routes which we will come in handy when your testing the Mandatory parts.
 	}
 
-The final tool you will want to add to your project before starting the Mandatory Parts is nodemon. Nodemon is a development tool that will automatically refresh our server whenever we make file changes, this way we will avoid having to manually shutdown and restart our server everytime we make changes. To add nodemon run `npm install --save-dev nodemon`. Then open your package.json file. Add a new script called "start-watch" and give it the value `nodemon server.js`. Now we can run `npm run start-watch` and nodemon will take care of refreshing our server. Your \texttt{package.json} file should look like this:
+The final tool you will want to add to your project before starting the Mandatory Parts is nodemon. Nodemon is a development tool that will automatically refresh our server whenever we make file changes, this way we will avoid having to manually shutdown and restart our server everytime we make changes. To add nodemon run \texttt{npm install --save-dev nodemon}. Then open your package.json file. Add a new script called \texttt{"start-watch"} and give it the value \texttt{"nodemon server.js"}. Now we can run \texttt{npm run start-watch} and nodemon will take care of refreshing our server. Your \texttt{package.json} file should look like this:
 \begin{42jscode}
 {
   "name": "test",
@@ -346,7 +344,7 @@ Now you are equiped with enough knowledge and tools to build your own API. You w
 \item DELETE \texttt{"/todos/:id"} -> Delete single Todo by ID
 \end{itemize}
 
-Use a db.json like we did in our previous example for storage.
+Use a \texttt{db.json} like we did in our previous example for storage.
 
 
 %******************************************************************************%
@@ -369,7 +367,7 @@ TODO: Update all routes
 %******************************************************************************%
 \chapter{Bonus part}
 
-    Finish the rest of \texttt{Basic JavaScript} and \texttt{ES6}
+Add Authentication lol
 
 %******************************************************************************%
 %                                                                              %
@@ -378,8 +376,7 @@ TODO: Update all routes
 %******************************************************************************%
 \chapter{Turn-in and peer-evaluation}
 
-    Free Code Camp will track your progress. You must complete all of
-the specified exercises and be prepared to explain your solutions.
+    Always be ready to explain your code. Also be prepared to demonstarte your routes in Postman.
 
 %******************************************************************************%
 \end{document}
