@@ -338,6 +338,7 @@ Now you are equiped with enough knowledge and tools to build your own API. You w
 
 Use a \texttt{db.json} like we did in our previous example for storage.
 
+\newpage
 
 %******************************************************************************%
 %                                                                              %
@@ -346,8 +347,9 @@ Use a \texttt{db.json} like we did in our previous example for storage.
 %******************************************************************************%
 \chapter{Mandatory part 2}
 
-Now that we are pros at writing APIs we will connect our API to a proper database instance. First follow the instructions for setting up a cloud instance of MongoDB.
-TODO: Setup MongoDB link
+Now that we are pros at writing APIs we will connect our API to a proper database instance. Your challenge will be to replace our current file system database with our newly setup Mongo database.\\
+
+\texttt{First} follow the instructions for setting up a cloud instance of MongoDB.\\
 
 Once we have our DB setup, we can set up Mongoose. Mongoose is an Object Document Modeler, it allows us to define a schema and easily connect to MongoDB. We will install it using \texttt{npm install --save mongoose} and require it at the top as usual. Then we can add the following snippet to connect our API to MongoDB through 
 
@@ -389,13 +391,15 @@ We can import our todo model at the top of our \texttt{server.js} file.
 const Todo = require("./todo.schema");
 \end{42jscode}
 
+\newpage
+
 Head to the \href{https://mongoosejs.com/docs/index.html}{Getting Started} section of the MongoDB docs to learn more about how to use mongoose.
 
-Your challenge will be to replace our current file system database with our newly setup Mongo database.
-
 \hint {
-	Check out the \href{https://mongoosejs.com/docs/api.html#Model}{Mongoose model API docs}
+		Check out the \href{https://bit.ly/2T1PWuF}{Mongoose model API docs}
 	}
+
+\newpage
 
 %******************************************************************************%
 %                                                                              %
