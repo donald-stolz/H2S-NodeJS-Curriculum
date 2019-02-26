@@ -1,5 +1,5 @@
 const express = require("express");
-const Todo = require("./todo.model");
+const Todo = require("./todo.schema");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -10,7 +10,7 @@ app.unsubscribe(bodyParser.urlencoded({ extended: false }));
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb://<username>:<password>@ds133865.mlab.com:33865/heroku_m1jp2bks",
+  "mongodb+srv://dstolz:42marvin@cluster0-4bipl.mongodb.net/test?retryWrites=true",
   { useNewUrlParser: true }
 );
 

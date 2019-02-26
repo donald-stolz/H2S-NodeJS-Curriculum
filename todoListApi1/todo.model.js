@@ -6,10 +6,6 @@ let Todo = new Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: true
-  },
   completed: {
     type: Boolean,
     required: true
@@ -17,4 +13,3 @@ let Todo = new Schema({
 });
 
 module.exports = mongoose.model("Todo", Todo);
-// Could add created at and completed at

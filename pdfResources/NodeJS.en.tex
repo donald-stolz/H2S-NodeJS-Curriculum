@@ -346,11 +346,56 @@ Use a \texttt{db.json} like we did in our previous example for storage.
 %******************************************************************************%
 \chapter{Mandatory part 2}
 
-Now that we are pros at writing APIs we will connect our API to a proper database instance
+Now that we are pros at writing APIs we will connect our API to a proper database instance. First follow the instructions for setting up a cloud instance of MongoDB.
+TODO: Setup MongoDB link
 
-TODO: Setup MongoDB and heroku
-TODO: Setup mongoose
-TODO: Update all routes
+Once we have our DB setup, we can set up Mongoose. Mongoose is an Object Document Modeler, it allows us to define a schema and easily connect to MongoDB. We will install it using \texttt{npm install --save mongoose} and require it at the top as usual. Then we can add the following snippet to connect our API to MongoDB through 
+
+\begin{42jscode}
+// Connect to MongoDB
+mongoose.connect("mongodb+srv://dstolz:42marvin@cluster0-4bipl.mongodb.net/test?retryWrites=true",
+	{ useNewUrlParser: true }
+);
+
+// Test MongoDB connection
+const connection = mongoose.connection;
+connection.once("open", function() {
+	console.log("MongoDB database connection established successfully");
+});
+\end{42jscode}
+
+In order to use MongoDB with Mongoose we will also have to create a schema. Create a seperate file called \texttt{todo.model.js} and add the following code:
+
+\begin{42jscode}
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+let Todo = new Schema({
+  task: {
+    type: String,
+    required: true
+  },
+  completed: {
+    type: Boolean,
+    required: true
+  }
+});
+
+module.exports = mongoose.model("Todo", Todo);
+\end{42jscode}
+
+We can import our todo model at the top of our \texttt{server.js} file.
+\begin{42jscode}
+const Todo = require("./todo.schema");
+\end{42jscode}
+
+Head to the \href{https://mongoosejs.com/docs/index.html}{Getting Started} section of the MongoDB docs to learn more about how to use mongoose.
+
+Your challenge will be to replace our current file system database with our newly setup Mongo database.
+
+\hint {
+	Check out the \href{https://mongoosejs.com/docs/api.html#Model}{Mongoose model API docs}
+	}
 
 %******************************************************************************%
 %                                                                              %
@@ -359,7 +404,7 @@ TODO: Update all routes
 %******************************************************************************%
 \chapter{Bonus part}
 
-Connect your API to a website or app.
+Connect your API to a website or app you built.
 
 %******************************************************************************%
 %                                                                              %
