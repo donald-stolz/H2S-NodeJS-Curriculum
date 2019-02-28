@@ -1,0 +1,599 @@
+# **************************************************************************** #
+#                                                                              #
+#               YOUR_PROJECT_NAME.fr.yml for YOUR_PROJECT_NAME                 #
+#               Created on : Mon Oct  5 18:10:13 2015                          #
+#               Made by : David "Thor" GIRON <thor@staff.42.fr>                #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                                                                              #
+#    Grading scales used during peer-evaluations at 42 are formatted as        #
+#  YAML files. Those files will then be uploaded by the pedago team on the     #
+#  school's intranet in order to generate the web form students will use       #
+#  during peer-evaluations.                                                    #
+#                                                                              #
+#    This YAML template documents in detail the style and content of a         #
+#  grading scale. It makes an excellent starting point for you to create       #
+#  your own grading scale. Don't hesitate to remove comment-boxes you deem     #
+#  unnecessary for your final version.                                         #
+#                                                                              #
+#    A scale is made of a bloc header followed by one or more section-blocs.   #
+#  Each section-bloc is made of one or more question-blocs. This bloc system   #
+#  allows you to gather related questions into the same section.               #
+#                                                                              #
+#    In order to evaluate students skills, 42 has developed a "skills" system, #
+#  inspired by role-playing games. Each project is assigned between 2 and 4    #
+#  skills. As those skills increase for a successfully produced project, they  #
+#  will also increase the global skills level on the student's profile.        #
+#  Here's the complete skills list used at 42 :                                #
+#                                                                              #
+#  - Adaptation & creativity                                                   #
+#  - Algorithms & AI                                                           #
+#  - Company experience                                                        #
+#  - DB & Data                                                                 #
+#  - Functional programming                                                    #
+#  - Graphics                                                                  #
+#  - Group & interpersonal                                                     #
+#  - Imperative programming                                                    #
+#  - Network & system administration                                           #
+#  - Object-oriented programming                                               #
+#  - Organization                                                              #
+#  - Parallel computing                                                        #
+#  - Rigor                                                                     #
+#  - Security                                                                  #
+#  - Technology integration                                                    #
+#  - Unix                                                                      #
+#  - Web                                                                       #
+#                                                                              #
+#    EACH skill associated with the project is worth a total of 100 points,    #
+#  and NOT 100 points for the whole skill set. Each ensemble of 100 points     #
+#  will be spread out throughout the project. Let's check out an example.      #
+#  A project "Lube" could be associated with the following skills :            #
+#  "Group & interpersonal" (100pts), "Rigor" (100pts) and "Web" (100pts).      #
+#                                                                              #
+#                     FIX ME                                                   #
+#                                                                              #
+# **************************************************************************** #
+
+---
+# **************************************************************************** #
+#                                                                              #
+#                  Grading scale for project <project name>                    #
+#                                  Header                                      #
+#                                                                              #
+# **************************************************************************** #
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry indicates the name of the project associated to this            #
+#   grading scale.                                                             #
+#   This name will also be used as a title for the generated form.             #
+# **************************************************************************** #
+name: JavaScript
+
+
+# **************************************************************************** #
+# The 'lg' entry:                                                              #
+#  Corresponds to the scale language. The scale must be in the language used   #
+#  for the subject.                                                            #
+# **************************************************************************** #
+lg: en
+
+
+# **************************************************************************** #
+# The 'is_primary' entry:                                                      #
+#   If a project has more than one scale, this entry allows you to choose      #
+#   the active scale. This entry is therefore reserved to the school's pedago  #
+#   team and its value must remain "true".                                     #
+# **************************************************************************** #
+is_primary: true
+
+
+# **************************************************************************** #
+# The 'comment' entry:                                                         #
+#   This grading-scale entry won't be displayed on the generated web-form.     #
+#   Its only purpose is to add comments on the scale's content. You may leave  #
+#   this entry empty if no comment is necessary concerning this scale.         #
+# **************************************************************************** #
+comment: ''
+
+
+# **************************************************************************** #
+# The 'introduction_md' entry:                                                 #
+#   This entry is your grading-scale's introduction, which means it's the      #
+#   first thing students will read when starting their peer-evaluation         #
+#   session. Here you should summarise the project's purpose and aim, as       #
+#   well as the rules of etiquette to follow to insure things go smoothly      #
+#   during the peer-evaluation session.                                        #
+#   The current rules used by default at the school are listed in the          #
+#   template bellow. You should keep them as they are (unless absolutely       #
+#   necessary).                                                                #
+# **************************************************************************** #
+introduction_md: |
+
+  To ensure this evaluation goes smoothly, please respect the following set
+  of rules :
+
+  - Please remain courteous, polite, respectful and constructive at all 
+    times during this exchange. The trust bond between the school's 
+    communauty and yourself depends on it.
+
+  - Should you notice any malfunctions within the submitted project, 
+    make sure you take the time to discuss those with the student (or 
+    group of students) being graded.
+
+  - Keep in mind that some subjects can be interpreted differently.
+    If you come accross a situation where the student you're grading 
+    has interpreted the subject differently than you, try and judge
+    fairly whether their interpretation is acceptable or not, and grade
+    them accordingly. Our peer-evaluation system can only work if you
+    both take it seriously.
+
+
+# **************************************************************************** #
+# The 'disclamer_md' entry:                                                    #
+#   This entry's sole purpose is to inform wether this project contains        #
+#   sensitive or secret material.                                              #
+#   In the particular case where you've partnered up with a company for this   #
+#   project, you may use this entry summon up the context of this partnership. #
+#   Write a few words about the company and explain your expectations and      #
+#   goals.                                                                     #
+#   In any other case, please leave this entry empty.                          #
+# **************************************************************************** #
+disclaimer_md: ''
+
+
+# **************************************************************************** #
+# The 'guidelines_md' entry:                                                   #
+#   This entry explains the general technical rules for the evaluation to      #
+#   run smoothly. Should you have special submission guidlines explicitely     #
+#   expressed in this project's subject, summon them up here.                  #
+#   In any other case, please leave this entry as it is.                       #
+# **************************************************************************** #
+guidelines_md: |
+
+  - TODO: Copy previous guidelines
+
+  - Any script created to make this evaluation session easier - whether
+    it was produced by you or the student being graded - must be  
+    checked rigorously in order to avoid bad surprises.
+
+  - If the student who is grading this project hasn't done the
+    project him/herself yet, he/she must read the whole topic 
+    before starting the evaluation session.
+
+  - Use the flags available to you on this scale in order to report
+    a submission directory that is empty, non-functional, that contains
+    a norm errors or a case of cheating, etc...
+    In this case, the evaluation session ends and the final grade is 0
+    (or -42, in case of cheating). However, unless the student has
+    cheated, we advise you to go through the project together in order 
+    for the two (or more) of you to identify the problems that may have 
+    led for this project to fail, and avoid repeating those mistakes for
+    future projects.
+
+
+# **************************************************************************** #
+# The 'correction_number' entry:                                               #
+#   This entry allows us to change the number of peer-evaluations a project    #
+#   will require before the final grade can be calculated by the intranet.     #
+#   This value is solely meant to be modified by members of the pedago team.   #
+# **************************************************************************** #
+correction_number: 5
+
+# **************************************************************************** #
+# The 'correction_number' entry:                                               #
+#   This entry allows us to control the time span of an evaluation session.    #
+#   This value is solely meant to be modified by members of the pedago team.   #
+# **************************************************************************** #
+duration: 2
+
+
+
+# **************************************************************************** #
+
+
+
+# **************************************************************************** #
+#                                                                              #
+#                  Grading scale for project <project name>                    #
+#                                   Sections                                   #
+#                                                                              #
+# **************************************************************************** #
+# **************************************************************************** #
+# The 'sections' entry:                                                        #
+#  This entry indicates the start of the sections list for this grading-scale. #
+#  No modifications necessary here. Leave as it is.                            #
+# **************************************************************************** #
+sections:
+
+
+# **************************************************************************** #
+#                 Section 1: <Title for section 1 of the scale>                #
+# **************************************************************************** #
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the section, which will be    #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+- name: Concepts
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which sections will be displayed   #
+#  once the scale is generated by the intranet. It also allows us to change    #
+#  the sections' order more quickly. Numbering starts at 1.                    #
+# **************************************************************************** #
+  position: 1
+
+# **************************************************************************** #
+# The 'description' entry:                                                     #
+#  The entry allows you to explain which aspects of the project will be        #
+#  evaluated in this section, as well as to give any relevent additional       #
+#  information concerning any of the questions gathered in this section.       #
+#  If nothing requires clarification, you may leave this entry empty.          #
+# **************************************************************************** #
+  description: 'This section will evaluate how well the student followed the instructions for exercises 00-03'
+
+
+# **************************************************************************** #
+# The 'questions' entry:                                                       #
+#  This entry indicates the start of the questions list for this section.      #
+#  No modifications necessary here. You may leave this blank.                  #
+# **************************************************************************** #
+  questions:
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: Did they complete the exercises to setup their first API?
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 1
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you the 3 GET routes ("/", "/users", "/user:id") and demonstrate how POST a new user.
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+# **************************************************************************** #
+#                 Section 2: <Title for section 1 of the scale>                #
+# **************************************************************************** #
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the section, which will be    #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+- name: Mandatory Part 1
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which sections will be displayed   #
+#  once the scale is generated by the intranet. It also allows us to change    #
+#  the sections' order more quickly. Numbering starts at 1.                    #
+# **************************************************************************** #
+  position: 2
+
+# **************************************************************************** #
+# The 'description' entry:                                                     #
+#  The entry allows you to explain which aspects of the project will be        #
+#  evaluated in this section, as well as to give any relevent additional       #
+#  information concerning any of the questions gathered in this section.       #
+#  If nothing requires clarification, you may leave this entry empty.          #
+# **************************************************************************** #
+  description: 'This section will evaluate how well they built their own Todo API.'
+
+
+# **************************************************************************** #
+# The 'questions' entry:                                                       #
+#  This entry indicates the start of the questions list for this section.      #
+#  No modifications necessary here. You may leave this blank.                  #
+# **************************************************************************** #
+  questions:
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: GET "/todos" & "/todos/:id"
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 1
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you their GET routes for "/todos" (Which should return all Todos) & "/todos/:id" (Which should return a single Todo by ID)
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: POST "/todos"
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 2
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you their POST route for "/todos" (Which should create a new Todo)
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: POST "/todos/:id"
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 3
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you their POST route for "/todos/:id" (Which should update a Todo according to it's ID)
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: DELETE "/todos/:id"
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 4
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you their DELETE route for "/todos/:id" (Which should remove a Todo according to it's ID)
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+
+# **************************************************************************** #
+#                 Section 3: <Title for section 1 of the scale>                #
+# **************************************************************************** #
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the section, which will be    #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+- name: Mandatory Part 2
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which sections will be displayed   #
+#  once the scale is generated by the intranet. It also allows us to change    #
+#  the sections' order more quickly. Numbering starts at 1.                    #
+# **************************************************************************** #
+  position: 3
+
+# **************************************************************************** #
+# The 'description' entry:                                                     #
+#  The entry allows you to explain which aspects of the project will be        #
+#  evaluated in this section, as well as to give any relevent additional       #
+#  information concerning any of the questions gathered in this section.       #
+#  If nothing requires clarification, you may leave this entry empty.          #
+# **************************************************************************** #
+  description: 'This section will evaluate how they were able to connect their existing API with Mongo DB'
+
+
+# **************************************************************************** #
+# The 'questions' entry:                                                       #
+#  This entry indicates the start of the questions list for this section.      #
+#  No modifications necessary here. You may leave this blank.                  #
+# **************************************************************************** #
+  questions:
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: Did they use MongoDB?
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 1
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      Have them show you their database on cloud.mongodb.com it is located under the 'Collections' tab
+
+    rating: bool
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+
+# **************************************************************************** #
+# The 'name' entry:                                                            #
+#   This entry allows us to indicate the name of the question, which will be   #
+#   represented as a title in the generated web form.                          #
+# **************************************************************************** #
+  - name: Does it mimic the previous functionality
+
+
+# **************************************************************************** #
+# The 'position' entry:                                                        #
+#  This entry allows us to set the order in which questions will be displayed  #
+#  in their corresponding sections once the scale is generated by the          #
+#  intranet.bIt also allows us to change the questions' order more quickly.    #
+#  Numbering starts at 1.                                                      #
+# **************************************************************************** #
+    position: 2
+
+# **************************************************************************** #
+# The 'guidelines' entry:                                                      #
+#   This entry corresponds to the question itself. Here, you need to be very   #
+#   precise on what's being evaluated and what makes its answer a success or   #
+#   a failure.                                                                 #
+# **************************************************************************** #
+    guidelines: |
+
+      In Postman, have them show you all the routes they setup in the previos section. Give one point for each route they were able to mimic
+
+    rating: multi
+    kind: standard
+    questions_skills:
+    - percentage: ??
+      name: DB & Data
+    - percentage: ??
+      name: Functional programming
+    - percentage: ??
+      name: Web
+    - percentage: ??
+      name: Network & system administration
+
+TODO: Bonus Part
