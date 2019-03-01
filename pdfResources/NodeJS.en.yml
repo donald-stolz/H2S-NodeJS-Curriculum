@@ -69,7 +69,7 @@
 #   grading scale.                                                             #
 #   This name will also be used as a title for the generated form.             #
 # **************************************************************************** #
-name: JavaScript
+name: Node JS
 
 
 # **************************************************************************** #
@@ -152,7 +152,12 @@ disclaimer_md: ''
 # **************************************************************************** #
 guidelines_md: |
 
-  - TODO: Copy previous guidelines
+  - You may only evaluate whatever is in the GiT submission directory & MongoDB 
+    account of the student you are grading.
+
+  - Make sure to check wether the GiT submission directory
+    belongs to the student (or group) you're grading, and that
+    it's the right project.
 
   - Any script created to make this evaluation session easier - whether
     it was produced by you or the student being graded - must be  
@@ -179,7 +184,7 @@ guidelines_md: |
 #   will require before the final grade can be calculated by the intranet.     #
 #   This value is solely meant to be modified by members of the pedago team.   #
 # **************************************************************************** #
-correction_number: 5
+correction_number: 3
 
 # **************************************************************************** #
 # The 'correction_number' entry:                                               #
@@ -274,13 +279,11 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
-      name: DB & Data
-    - percentage: ??
+    - percentage: 20
       name: Functional programming
-    - percentage: ??
+    - percentage: 20
       name: Web
-    - percentage: ??
+    - percentage: 20
       name: Network & system administration
 
 
@@ -350,13 +353,13 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 10
       name: DB & Data
-    - percentage: ??
+    - percentage: 10
       name: Functional programming
-    - percentage: ??
+    - percentage: 10
       name: Web
-    - percentage: ??
+    - percentage: 10
       name: Network & system administration
 
 
@@ -390,13 +393,13 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 10
       name: DB & Data
-    - percentage: ??
+    - percentage: 10
       name: Functional programming
-    - percentage: ??
+    - percentage: 10
       name: Web
-    - percentage: ??
+    - percentage: 10
       name: Network & system administration
 
 
@@ -430,13 +433,13 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 10
       name: DB & Data
-    - percentage: ??
+    - percentage: 10
       name: Functional programming
-    - percentage: ??
+    - percentage: 10
       name: Web
-    - percentage: ??
+    - percentage: 10
       name: Network & system administration
 
 
@@ -470,13 +473,13 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 10
       name: DB & Data
-    - percentage: ??
+    - percentage: 10
       name: Functional programming
-    - percentage: ??
+    - percentage: 10
       name: Web
-    - percentage: ??
+    - percentage: 10
       name: Network & system administration
 
 
@@ -547,14 +550,8 @@ sections:
     rating: bool
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 20
       name: DB & Data
-    - percentage: ??
-      name: Functional programming
-    - percentage: ??
-      name: Web
-    - percentage: ??
-      name: Network & system administration
 
 
 # **************************************************************************** #
@@ -587,13 +584,38 @@ sections:
     rating: multi
     kind: standard
     questions_skills:
-    - percentage: ??
+    - percentage: 40
       name: DB & Data
-    - percentage: ??
+    - percentage: 40
       name: Functional programming
-    - percentage: ??
+    - percentage: 40
       name: Web
-    - percentage: ??
+    - percentage: 40
       name: Network & system administration
 
-TODO: Bonus Part
+
+
+
+# **************************************************************************** #
+#                              Bonus Part                                      #
+# **************************************************************************** #
+- name: Bonus Part
+  position: 4
+  description: 'Do they have any additional routes or features?'
+  questions:
+
+  - name: Bonus
+    position: 1
+
+
+    guidelines: |
+
+      Add 1 point for each additional route or feature
+
+    rating: multi
+    kind: bonus
+    questions_skills:
+    - percentage: 25
+      name: Web
+    - percentage: 25
+      name: Functional programming
