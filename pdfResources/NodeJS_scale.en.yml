@@ -611,7 +611,7 @@ sections:
 
       Have them show you some API requests to their remote URL
 
-    rating: multi
+    rating: bool
     kind: bonus
     questions_skills:
     - percentage: 25
