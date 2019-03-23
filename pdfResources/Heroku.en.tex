@@ -15,7 +15,7 @@
 %                                                                              %
 %******************************************************************************%
 \begin{document}
-\title{JavaScript}
+\title{Heroku}
 \member{Donald Stolz}{dstolz@student.42.us.org}
 \summary {
  Setup a Heroku account and host your first remote server. 
@@ -38,31 +38,31 @@ So far we have been running our server from our local machine. We have had to ma
 %                                Pre-req: Homebrew                             %
 %                                                                              %
 %******************************************************************************%
-\chapter{Pre-req: Homebrew & Heroku CLI}
+\chapter{Pre-req: Homebrew \& Heroku CLI}
 
 First we need to install Homebrew, so that we can later install the Heroku CLI\\
 
 Copy and paste the following into your terminal.
-\begin{42shell}
+\begin{42console}
 	mkdir $HOME/.brew && curl -fsSL https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew
 	mkdir -p /tmp/.$(whoami)-brew-locks
 	mkdir -p $HOME/.brew/var/homebrew
 	ln -s /tmp/.$(whoami)-brew-locks $HOME/.brew/var/homebrew/locks
 	export PATH="$HOME/.brew/bin:$PATH"
 	brew update && brew upgrade
-\end{42shell}
+\end{42console}
 
 Afterwards make sure you add the following lines to your `.zshrc`.\\
 You can access this file by using `vim .zshrc`
-\begin{42shell}
+\begin{42console}
 	mkdir -p /tmp/.$(whoami)-brew-locks
 	export PATH="$HOME/.brew/bin:$PATH"
-\end{42shell}
+\end{42console}
 
 Once we have Homebrew installed we can install the Heroku. Simply run:
-\begin{42shell}
-$ brew tap heroku/brew && brew install heroku
-\end{42shell}
+\begin{42console}
+    brew tap heroku/brew && brew install heroku
+\end{42console}
 
 
 \newpage
@@ -77,14 +77,15 @@ First head to \href{https://www.heroku.com/}{https://www.heroku.com/} and click 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=14cm]{WEB/heroku_0.png}
+        \includegraphics[width=16cm]{WEB/heroku_0.png}
     \end{center}
 \end{figure}
 
+\newpage
 Fill out the simple form to create an account
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=14cm]{WEB/heroku_1.png}
+        \includegraphics[width=16cm]{WEB/heroku_1.png}
     \end{center}
 \end{figure}
 
@@ -93,14 +94,14 @@ Fill out the simple form to create an account
 Next head to `create new app`
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=12cm]{WEB/heroku_2.png}
+        \includegraphics[width=16cm]{WEB/heroku_2.png}
     \end{center}
 \end{figure}
 
 Simply give your app a name
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=14cm]{WEB/heroku_3.png}
+        \includegraphics[width=16cm]{WEB/heroku_3.png}
     \end{center}
 \end{figure}
 
@@ -109,7 +110,7 @@ Simply give your app a name
 Once you get to this page you will need to login to the Heroku cli. Then copy your command to add heroku to an `Existing Git repository`. Finally follow the `Deploy your application` instructions.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=14cm]{WEB/heroku_4.png}
+        \includegraphics[width=17cm]{WEB/heroku_4.png}
     \end{center}
 \end{figure}
 
