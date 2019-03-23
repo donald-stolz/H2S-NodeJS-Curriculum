@@ -349,66 +349,78 @@ Use a \texttt{db.json} like we did in our previous example for storage.
 
 Now that we are pros at writing APIs we will connect our API to a proper database instance. Your challenge will be to \texttt{FIRST COPY} your existing API, then replace our current file system database with a newly setup Mongo database.\\
 
-\texttt{First} follow the instructions for setting up a cloud instance of MongoDB.\\
+\texttt{First} follow the MongoDB PDF for instructions on setting up a cloud instance of MongoDB.\\
 
 Once we have our DB setup, we can set up Mongoose. Mongoose is an Object Document Modeler, it allows us to define a schema and easily connect to MongoDB. We will install it using \texttt{npm install --save mongoose} and require it at the top as usual. Then we can add the following snippet to connect our API to MongoDB through 
 
 \begin{42jscode}
-// Connect to MongoDB
-mongoose.connect("mongodb+srv://dstolz:42marvin@cluster0-4bipl.mongodb.net/test?retryWrites=true",
+	// Connect to MongoDB
+	mongoose.connect("mongodb+srv://dstolz:42marvin@cluster0-4bipl.mongodb.net/test?retryWrites=true",
 	{ useNewUrlParser: true }
-);
+	);
+	
+	// Test MongoDB connection
+	const connection = mongoose.connection;
+	connection.once("open", function() {
+		console.log("MongoDB database connection established successfully");
+		});
+	\end{42jscode}
+	
+	In order to use MongoDB with Mongoose we will also have to create a schema. Create a seperate file called \texttt{todo.model.js} and add the following code:
+	
+	\begin{42jscode}
+		const mongoose = require("mongoose");
+		const Schema = mongoose.Schema;
+		
+		let Todo = new Schema({
+			task: {
+				type: String,
+				required: true
+				},
+				completed: {
+					type: Boolean,
+					required: true
+					}
+					});
+					
+					module.exports = mongoose.model("Todo", Todo);
+				\end{42jscode}
+				
+				We can import our todo model at the top of our \texttt{server.js} file.
+				\begin{42jscode}
+					const Todo = require("./todo.schema");
+				\end{42jscode}
+				
+				\newpage
+				
+				Head to the \href{https://mongoosejs.com/docs/index.html}{Getting Started} section of the mongoose docs to learn more.
+				
+				\hint {
+					Check out the \href{https://bit.ly/2T1PWuF}{Mongoose model API docs}
+					}
+					
+					\newpage
+					
+					
+%******************************************************************************%
+%                                                                              %
+%                             Bonus Part 1                                     %
+%                                                                              %
+%******************************************************************************%
+\chapter{Bonus part 1}
 
-// Test MongoDB connection
-const connection = mongoose.connection;
-connection.once("open", function() {
-	console.log("MongoDB database connection established successfully");
-});
-\end{42jscode}
-
-In order to use MongoDB with Mongoose we will also have to create a schema. Create a seperate file called \texttt{todo.model.js} and add the following code:
-
-\begin{42jscode}
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-let Todo = new Schema({
-  task: {
-    type: String,
-    required: true
-  },
-  completed: {
-    type: Boolean,
-    required: true
-  }
-});
-
-module.exports = mongoose.model("Todo", Todo);
-\end{42jscode}
-
-We can import our todo model at the top of our \texttt{server.js} file.
-\begin{42jscode}
-const Todo = require("./todo.schema");
-\end{42jscode}
-
-\newpage
-
-Head to the \href{https://mongoosejs.com/docs/index.html}{Getting Started} section of the mongoose docs to learn more.
-
-\hint {
-		Check out the \href{https://bit.ly/2T1PWuF}{Mongoose model API docs}
-	}
+Follow the Heroku PDF to remotely host your server.
 
 \newpage
 
 %******************************************************************************%
 %                                                                              %
-%                                 Bonus part                                   %
+%                                 Bonus Part 2                                 %
 %                                                                              %
 %******************************************************************************%
 \chapter{Bonus part}
 
-Connect your API to a website or app you built. Add routes that expand on the existing functionalty of your API.
+Add routes that expand on the existing functionalty of your API.
 
 %******************************************************************************%
 %                                                                              %

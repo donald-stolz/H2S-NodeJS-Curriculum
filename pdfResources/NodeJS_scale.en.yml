@@ -595,12 +595,36 @@ sections:
 
 
 
+# **************************************************************************** #
+#                              Bonus Part 1                                    #
+# **************************************************************************** #
+- name: Bonus Part 1
+  position: 4
+  description: 'Is their server hosted on a cloud service'
+  questions:
+
+  - name: Bonus
+    position: 1
+
+
+    guidelines: |
+
+      Have them show you some API requests to their remote URL
+
+    rating: multi
+    kind: bonus
+    questions_skills:
+    - percentage: 25
+      name: Web
+    - percentage: 25
+      name: Network & system administration
+
 
 # **************************************************************************** #
-#                              Bonus Part                                      #
+#                              Bonus Part 2                                    #
 # **************************************************************************** #
-- name: Bonus Part
-  position: 4
+- name: Bonus Part 2
+  position: 5
   description: 'Do they have any additional routes or features?'
   questions:
 
@@ -615,7 +639,5 @@ sections:
     rating: multi
     kind: bonus
     questions_skills:
-    - percentage: 25
-      name: Web
     - percentage: 25
       name: Functional programming
